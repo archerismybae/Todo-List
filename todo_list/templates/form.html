@@ -1,9 +1,11 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h3>Add new task</h3>
         <form action="{% url 'form' %}" method="post">
             {% csrf_token %}
-            {{ form }}
-            <input type="submit" value="Submit">
+        <div class = "col text-center">
+                {{ form }}
+            <input type="submit" value="Submit" class="btn btn-outline-primary">
         </form>
+        <a class="btn btn-outline-secondary" href = "{% url 'home' %}"">Back</a>
+        </div>
 {% endblock %}

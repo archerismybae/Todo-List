@@ -1,7 +1,16 @@
 {% extends "layout.html" %}
 {% block content %}
         {% for item in items %}
-            <li>{{ item.content }}</li>
+            <ul>
+            <li>{{ item.content }}
+                <form action= "/delete/{{ item.id }}/" method = "post">
+                    {% csrf_token %}
+                    <input type = "submit" value="Delete" class="btn btn-outline-danger">
+                </form>
+            </li>
+            </ul>   
         {% endfor %}
-        <a class="btn btn-primary" href="{% url 'form' %}" role="button">Add new task</a>
+        <div class="col text-center">
+            <a class="btn btn-primary" href="{% url 'form' %}" role="button">Add new task</a>
+        </div>
 {% endblock %}

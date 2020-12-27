@@ -21,3 +21,9 @@ def enter_task(request):
     else:
         form = TodoListForm(auto_id=False)
     return render(request, 'form.html', {'form': form})
+
+def delete_items(request, item):
+    del_obj = TodoListItem.objects.get(id=item)
+    del_obj.delete()
+    return HttpResponseRedirect('/')
+
